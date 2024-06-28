@@ -3,63 +3,83 @@
 # Exercise 1: Function Definition and Calling
 print("\n\rExercise 1: Function Definition and Calling")
 
-# Define a function multiply that takes two numbers as parameters and prints their product.
-def multiply(a, b):
-    print(a * b)
+# Define a function remove_book that takes a title as a parameter and removes the corresponding book from a list.
+print("\n\r1. Define a function remove_book:")
+def remove_book(title, book_list):
+    for book in book_list:
+        if book['title'] == title:
+            book_list.remove(book)
+            print(f"Book removed: {title}")
+            return
+    print(f"Book not found: {title}")
 
-# Call the multiply function with different sets of numbers
-print("Calling multiply(2, 3):")
-multiply(2, 3)  # Output: 6
+# Sample book list
+books = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
 
-print("\n\rCalling multiply(4, 5):")
-multiply(4, 5)  # Output: 20
+# Call the remove_book function with different book titles.
+print("\n\rCalling remove_book('1984'):")
+remove_book("1984", books)
+print("\n\rCalling remove_book('The Great Gatsby'):")
+remove_book("The Great Gatsby", books)
+print(books)
 
-print("\n\rCalling multiply(7, 8):")
-multiply(7, 8)  # Output: 56
 
 
 # Exercise 2: Parameters and Return Values
 print("\n\rExercise 2: Parameters and Return Values")
 
-# Define a function is_even that takes a number as a parameter and returns True if the number is even, False otherwise.
-def is_even(number):
-    return number % 2 == 0
+# Define a function update_book_year that takes a title and a new year as parameters and updates the year of the book with the given title.
+print("\n\r1. Define a function update_book_year:")
+def update_book_year(title, new_year, book_list):
+    for book in book_list:
+        if book['title'] == title:
+            book['year'] = new_year
+            print(f"Updated book year: {title} to {new_year}")
+            return
+    print(f"Book not found: {title}")
 
-# Define a function square that takes a number as a parameter and returns its square.
-def square(number):
-    return number ** 2
+# Sample book list
+books = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
 
-# Test the is_even function
-print("Testing is_even function:")
-print("is_even(4):", is_even(4))  # Output: True
-print("is_even(7):", is_even(7))  # Output: False
+# Define a function list_books that returns a list of all book titles in the library.
+print("\n\r2. Define a function list_books:")
+def list_books(book_list):
+    return [book['title'] for book in book_list]
 
-# Test the square function
-print("\n\rTesting square function:")
-print("square(3):", square(3))  # Output: 9
-print("square(5):", square(5))  # Output: 25
-
-
-# Exercise 3: Importing and Organizing Code into Modules
-print("\n\rExercise 3: Importing and Organizing Code into Modules")
+# Update a book year and list all books
+print("\n\rUpdating the year of '1984':")
+update_book_year("1984", 1950, books)
+print("\n\rListing all books:")
+print(list_books(books))
 
 
-# Pulled from file ./library/math_utils.py
-from library.math_utils import add, subtract, multiply, divide
+# This library comes from ./library/library_utils that you need to make
+from library.library_utils import add_book, remove_book, update_book_year, list_books
 
-# Test the add function
-print("Testing add function:")
-print("add(10, 5):", add(10, 5))  # Output: 15
+# Sample book list
+books = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
 
-# Test the subtract function
-print("\n\rTesting subtract function:")
-print("subtract(10, 5):", subtract(10, 5))  # Output: 5
+# Test the add_book function
+print("\n\rTesting add_book:")
+add_book("The Great Gatsby", "F. Scott Fitzgerald", 1925, books)
 
-# Test the multiply function
-print("\n\rTesting multiply function:")
-print("multiply(10, 5):", multiply(10, 5))  # Output: 50
+# Test the remove_book function
+print("\n\rTesting remove_book:")
+remove_book("1984", books)
 
-# Test the divide function
-print("\n\rTesting divide function:")
-print("divide(10, 5):", divide(10, 5))  # Output: 2.0
-print("divide(10, 0):", divide(10, 0))  # Output: "Cannot divide by zero"
+# Test the update_book_year function
+print("\n\rTesting update_book_year:")
+update_book_year("Brave New World", 1935, books)
+
+# Test the list_books function
+print("\n\rTesting list_books:")
+print(list_books(books))
