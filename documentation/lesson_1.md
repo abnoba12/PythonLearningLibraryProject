@@ -42,7 +42,30 @@ The objective of this lesson is to introduce students to Python programming and 
 - Guide students to install Visual Studio Code from [code.visualstudio.com](https://code.visualstudio.com/).
   - After installation, students can open the project directory in VS Code and install recommended extensions for Python development.
 
-### 2. Learing the Project Structure
+### 2. Setting Up Your Own Fork of the Repository
+Before you begin, you need to create your own fork of the repository. Follow the steps below:
+
+1. **Fork the Repository:**
+   - Go to the GitHub page of the repository: [PythonLearningLibraryProject](https://github.com/abnoba12/PythonLearningLibraryProject.git).
+   - Click the "Fork" button at the top right of the page to create your own copy of the repository under your GitHub account.
+
+2. **Clone Your Fork:**
+   - Once you have forked the repository, clone your fork to your local machine. Replace `your-username` with your GitHub username:
+
+   ```sh
+   git clone https://github.com/your-username/PythonLearningLibraryProject.git
+   ```
+3. **Navigate to the Repository Directory:**
+    ```sh
+    cd PythonLearningLibraryProject
+    ```
+4. **Add Upstream Remote:**
+   - To keep your fork up to date with the original repository, add the original repository as an upstream remote:
+    ```sh
+      git remote add upstream https://github.com/abnoba12/PythonLearningLibraryProject.git
+    ```
+
+### 3. Learing the Project Structure
 
 **Discussion Points:**
 - An organized project structure helps in maintaining the code and makes collaboration easier.
@@ -101,3 +124,37 @@ The objective of this lesson is to introduce students to Python programming and 
     ```
     Hello, World!
     ```
+
+## Moving to Lesson 2
+
+If you have completed Lesson 1 and are ready to proceed to Lesson 2, you need to change your Git branch to `Lesson_2`. Follow the steps below to switch branches:
+
+1. **Ensure all changes are committed:**
+   Before switching branches, make sure you have committed all your changes in the current branch. You can do this with the following commands:
+
+   ```sh
+   git add .
+   git commit -m "Completed Lesson 1"
+   ```
+2. **Fetch all branches:**
+   ```sh
+   Fetch all branches:
+   ```
+3. **Switch to the Lesson_2 branch:**
+   To switch to the Lesson_2 branch, use the following command:
+
+   ```sh
+   git checkout Lesson_2
+   ```
+1. **Verify the branch switch:**
+   You can verify that you have switched to the correct branch by running:
+
+   ```sh
+   git branch
+   ```
+   The output should show Lesson_2 with an asterisk (*) next to it, indicating that you are currently on this branch.
+   ```sh
+    * Lesson_2
+      main
+   ```
+   Once you have switched to the Lesson_2 branch, you are ready to start the next lesson. Happy coding!
