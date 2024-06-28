@@ -33,15 +33,26 @@ The objective of this lesson is to teach students how to handle errors and excep
 **Discussion Points:**
 - Errors and exceptions are common in programming and can cause programs to crash.
 - Error handling allows you to manage errors gracefully and continue the execution of the program.
-- The try-except block is used to catch and handle exceptions.
+- The try-except block is used to catch and handle exceptions in the library application, such as when a book is not found.
 
 **Examples:**
 ```python
 # Basic error handling with try-except
-try:
-    x = 10 / 0
-except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
+def get_book_by_title(title, books):
+    try:
+        for book in books:
+            if book['title'] == title:
+                return book
+        raise ValueError("Book not found")
+    except ValueError as e:
+        print(f"Error: {e}")
+
+books = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
+
+get_book_by_title("The Great Gatsby", books)
 ```
 
 **Further Reading:**
@@ -58,17 +69,22 @@ except ZeroDivisionError:
 **Examples:**
 ```python
 # Catching specific exceptions and using else and finally
-try:
-    x = int(input("Enter a number: "))
-    y = 10 / x
-except ZeroDivisionError:
-    print("Error: Division by zero is not allowed.")
-except ValueError:
-    print("Error: Invalid input. Please enter a valid number.")
-else:
-    print(f"Result: {y}")
-finally:
-    print("Execution completed.")
+def add_book(book, books):
+    try:
+        if not isinstance(book, dict):
+            raise TypeError("Book must be a dictionary")
+        books.append(book)
+    except TypeError as e:
+        print(f"Error: {e}")
+    else:
+        print("Book added successfully")
+    finally:
+        print("Execution completed.")
+
+books = []
+
+add_book({"title": "1984", "author": "George Orwell", "year": 1949}, books)
+add_book("Not a dictionary", books)
 ```
 
 **Further Reading:**
@@ -83,23 +99,27 @@ finally:
 **Examples:**
 ```python
 # Raising exceptions and creating custom exceptions
-def check_age(age):
-    if age < 18:
-        raise ValueError("Age must be at least 18.")
-    return "Age is valid."
+def check_book_year(year):
+    if year < 1450 or year > 2024:
+        raise ValueError("Year must be between 1450 and 2024")
+    return "Year is valid."
 
 try:
-    print(check_age(15))
+    print(check_book_year(2025))
 except ValueError as e:
     print(f"Error: {e}")
 
 # Creating a custom exception
-class CustomError(Exception):
+class BookError(Exception):
     pass
 
+def check_book_title(title):
+    if not title:
+        raise BookError("Title cannot be empty")
+
 try:
-    raise CustomError("This is a custom error.")
-except CustomError as e:
+    check_book_title("")
+except BookError as e:
     print(f"Caught custom error: {e}")
 ```
 
@@ -141,8 +161,11 @@ def divide(a, b):
 def main():
     x = 10
     y = 0
-    result = divide(x, y)
-    print(result)
+    try:
+        result = divide(x, y)
+        print(result)
+    except ZeroDivisionError:
+        print("Error: Division by zero is not allowed.")
 
 if __name__ == "__main__":
     main()
@@ -154,17 +177,17 @@ if __name__ == "__main__":
 ## Exercises
 
 **Exercise 1: Basic Error Handling**
-1. Write a program that takes two numbers as input and prints their division. Use a try-except block to handle division by zero errors.
+1. Write a program that takes a book title and author as input and adds the book to the library. Use a try-except block to handle errors when the title or author is missing.
 
 **Exercise 2: Catching Specific Exceptions**
-1. Write a program that takes a list of numbers as input and prints the square of each number. Use try-except blocks to handle invalid input and type errors.
+1. Write a program that takes a list of book titles and authors as input and prints each book's details. Use try-except blocks to handle invalid input and type errors.
 
 **Exercise 3: Raising Exceptions**
-1. Write a function that takes a string as input and checks if it contains only letters. Raise a custom exception if the string contains non-letter characters.
+1. Write a function that takes a book title as input and checks if it contains only letters and spaces. Raise a custom exception if the title contains any other characters.
 
 **Exercise 4: Debugging with VS Code**
 1. Use the VS Code debugger to debug the provided example code. Set breakpoints, inspect variables, and step through the code to identify and fix the division by zero error.
 
 ## Summary
 
-By the end of Lesson 5, students should be comfortable with handling errors and exceptions in Python and using the VS Code debugger to troubleshoot and fix issues in their code. They will understand how to use try-except blocks to catch and handle specific exceptions, how to use else and finally clauses, how to raise exceptions, including custom exceptions, and how to effectively use debugging tools in VS Code. These skills are essential for writing robust and error-tolerant programs and for efficiently troubleshooting and resolving issues during development.
+By the end of Lesson 5, students should be comfortable with handling errors and exceptions in Python and using the VS Code debugger to troubleshoot and fix issues in their code. They will understand how to use try-except blocks to catch and handle specific exceptions, how to use else and finally clauses, how to raise exceptions, including custom exceptions, and how to effectively use debugging tools in VS Code. These skills are essential for writing robust and error-tolerant programs and for efficiently troubleshooting and resolving issues during development, especially within the context of building a library application.
