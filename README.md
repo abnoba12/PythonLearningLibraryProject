@@ -40,7 +40,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - Handling invalid input
 - Managing file errors
 
-### Lesson 6: File Handling and CRUD Operations
+### Lesson 6: File Handling and CRUD Operations [🔗](./documentation/lesson_6.md)
 
 - File handling (open, read, write, close)
 - CSV file operations
