@@ -22,7 +22,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - String manipulation
 - Lists and list comprehensions
 
-### Lesson 3: Functions and Modules
+### Lesson 3: Functions and Modules [🔗](./documentation/lesson_3.md)
 
 - Function definition and calling
 - Parameters and return values
