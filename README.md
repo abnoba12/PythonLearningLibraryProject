@@ -28,7 +28,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - Parameters and return values
 - Importing and organizing code into modules
 
-### Lesson 4: Control Structures
+### Lesson 4: Control Structures [🔗](./documentation/lesson_4.md)
 
 - If-else statements
 - While loops

@@ -134,3 +134,6 @@ print(book)
 ## Summary
 
 By the end of Lesson 3, students should be comfortable with defining and using functions in Python, understanding function parameters and return values, and organizing their code into modules for better readability and maintainability. These skills are essential for writing clean, efficient, and reusable code, especially when managing a library application.
+
+## Lesson 4
+   [Lesson 4: Control Structures and Menu-Driven Interface](./documentation/lesson_4.md)
