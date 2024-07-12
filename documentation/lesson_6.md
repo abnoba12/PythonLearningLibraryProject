@@ -201,21 +201,25 @@ read_books(filename)
 1. Write a program to open a file in write mode and write some text to it. Then, open the same file in read mode and display its content.
 
 **Exercise 2: Reading and Writing Files**
-1. Write a program that writes a list of book details (title, author, year) to a file, each book on a new line. Then, read the file line by line and print each book's details.
+1. Create a new file: ./library/data_operations/text_repository.py. Write all code for Exercise 2 in this file.
+2. Create a new functions `add_book` that will write a book's details (title, author, year) to a file, each book on a new line. Then make another function `list_books` to read the file line by line and print each book's details.
+3. Replace the current `add_book` and `list_books` functions in the main_menu with these two. 
 
 **Exercise 3: Basic CRUD Operations**
-1. Create a program that performs the following operations on a text file storing book details:
-   - Create and write initial book data to the file.
-   - Read and display the book data.
-   - Update the file by appending new book data.
-   - Delete the file.
+1. Write all code for Exercise 3 in ./library/data_operations/text_repository.py
+2. Create functions that perform the following operations on a text file storing book details:
+   - C: Create and write a new book to the file `add_book`. This was completed in Exercise 2.
+   - R: Read and display a list of book data `list_books`. This was completed in Exercise 2.
+   - U: Update a single book's year by its title `update_book_year`. Replace the current `update_book_year` in the main menu.
+   - D: Delete a single book by its title `remove_book`. Replace the current `remove_book` in the main menu.
 
 **Exercise 4: Using CSV Files**
-1. Write a program that performs the following CRUD operations on a CSV file storing book details:
-   - `create_book`: Add a new book to the CSV file.
-   - `read_books`: Read and display books from the CSV file.
-   - `update_book`: Update book details in the CSV file.
-   - `delete_book`: Remove a book from the CSV file.
+1. Write all code for Exercise 4 in ./library/data_operations/csv_repository.py
+2. Write functions that performs the following CRUD operations on a CSV file storing book details. This is the same as Exercise 3, but for a CSV file this time.:
+   - `add_book`: Add a book to the CSV file.
+   - `list_books`: Read and display the books from the CSV file.
+   - `update_book_year`: Update a book's year in the CSV file.
+   - `remove_book`: Remove a book from the CSV file.
 
 ## Summary
 
