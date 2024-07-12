@@ -1,69 +1,32 @@
 # Answers to Lesson 4
 
-# Exercise 1: If-Else Statements
-print("\n\rExercise 1: If-Else Statements")
-
-# 1. Write a program that checks if a number is positive, negative, or zero.
-print("\n\r1. Check if a number is positive, negative, or zero:")
-number = 7
-if number > 0:
-    print("The number is positive")
-elif number == 0:
-    print("The number is zero")
-else:
-    print("The number is negative")
-
-# 2. Write a program that assigns grades based on marks: A (90-100), B (80-89), C (70-79), D (60-69), F (below 60).
-print("\n\r2. Assign grades based on marks:")
-marks = 85
-if marks >= 90:
-    grade = 'A'
-elif marks >= 80:
-    grade = 'B'
-elif marks >= 70:
-    grade = 'C'
-elif marks >= 60:
-    grade = 'D'
-else:
-    grade = 'F'
-print(f"The grade is {grade}")
-
-
-# Exercise 2: While Loops
-print("\n\rExercise 2: While Loops")
-
-# 1. Write a while loop that prints numbers from 1 to 10.
-print("\n\r1. Print numbers from 1 to 10:")
-count = 1
-while count <= 10:
-    print(count)
-    count += 1
-
-# 2. Write a program that uses a while loop to calculate the sum of numbers from 1 to 100.
-print("\n\r2. Calculate the sum of numbers from 1 to 100:")
-sum_numbers = 0
-number = 1
-while number <= 100:
-    sum_numbers += number
-    number += 1
-print(f"The sum of numbers from 1 to 100 is {sum_numbers}")
-
-
-# Exercise 3: User Input Handling
+# ./main.py
 print("\n\rExercise 3: User Input Handling")
 
-# 1. Write a program that takes a list of numbers as input and prints the square of each number. Use try-except blocks to handle invalid input and type errors.
-print("\n\r1. Print the square of each number in a list with error handling:")
-try:
-    numbers = input("Enter a list of numbers separated by spaces: ").split()
-    numbers = [float(num) for num in numbers]
-    for num in numbers:
-        print(f"The square of {num} is {num ** 2}")
-except ValueError:
-    print("Error: Please enter valid numbers.")
+# 1. Write a prompt that asks for a list of numbers as input and prints out if each number is positive, negative, or zero using the function from Exercise 1.
+# Use try-except blocks to handle invalid input and type errors.
+print("\n\r1. Prompt for a list of numbers and check if each number is positive, negative, or zero:")
+
+def check_number(number):
+    if number > 0:
+        return "The number is positive"
+    elif number == 0:
+        return "The number is zero"
+    else:
+        return "The number is negative"
+
+user_input = input("Enter a list of numbers separated by spaces: ")
+numbers = user_input.split()
+for num in numbers:
+    try:
+        number = int(num)
+        print(check_number(number))
+    except ValueError:
+        print(f"Invalid input: {num} is not a number")
 
 # 2. Write a program that takes a string as input and checks if it is a palindrome (a word that reads the same backward as forward).
 print("\n\r2. Check if a string is a palindrome:")
+
 def is_palindrome(s):
     return s == s[::-1]
 
@@ -74,53 +37,54 @@ else:
     print("The string is not a palindrome")
 
 
-# Exercise 4: Implementing a Menu-Driven Interface
+
+
+
 print("\n\rExercise 4: Implementing a Menu-Driven Interface")
 
-# 1. Create a menu-driven program that allows the user to perform different mathematical operations (addition, subtraction, multiplication, division) based on their choice. Ensure that the program handles invalid choices and division by zero errors.
-print("\n\r1. Menu-driven program for mathematical operations:")
+# 1. Create a menu-driven program that allows the user to perform different library operations that were created in lesson 3 in file "./library/data_operations/book_operations.py".
+# Through this menu and prompts we need to allow users to "add_book", "remove_book", "update_book_year", "list_books", and "find_book_by_title".
 
-def add(a, b):
-    return a + b
+from library.data_operations.book_operations import add_book, remove_book, update_book_year, list_books, find_book_by_title
 
-def subtract(a, b):
-    return a - b
-
-def multiply(a, b):
-    return a * b
-
-def divide(a, b):
-    if b == 0:
-        return "Error: Division by zero is not allowed."
-    return a / b
+books = []
 
 def main_menu():
     while True:
         print("\nMain Menu:")
-        print("1. Addition")
-        print("2. Subtraction")
-        print("3. Multiplication")
-        print("4. Division")
-        print("5. Exit")
+        print("1. Add Book")
+        print("2. Remove Book")
+        print("3. Update Book Year")
+        print("4. List Books")
+        print("5. Find Book by Title")
+        print("6. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
-            a = float(input("Enter the first number: "))
-            b = float(input("Enter the second number: "))
-            print(f"Result: {add(a, b)}")
+            title = input("Enter book title: ")
+            author = input("Enter book author: ")
+            year = int(input("Enter book year: "))
+            add_book(books, title, author, year)
+            print(f"Book added: {title}, {author}, {year}")
         elif choice == '2':
-            a = float(input("Enter the first number: "))
-            b = float(input("Enter the second number: "))
-            print(f"Result: {subtract(a, b)}")
+            title = input("Enter book title to remove: ")
+            print(remove_book(books, title))
         elif choice == '3':
-            a = float(input("Enter the first number: "))
-            b = float(input("Enter the second number: "))
-            print(f"Result: {multiply(a, b)}")
+            title = input("Enter book title to update: ")
+            new_year = int(input("Enter new year: "))
+            print(update_book_year(books, title, new_year))
         elif choice == '4':
-            a = float(input("Enter the first number: "))
-            b = float(input("Enter the second number: "))
-            print(f"Result: {divide(a, b)}")
+            print("List of books:")
+            for title in list_books(books):
+                print(title)
         elif choice == '5':
+            title = input("Enter book title to find: ")
+            book = find_book_by_title(books, title)
+            if book:
+                print(f"Found book: {book}")
+            else:
+                print("Book not found")
+        elif choice == '6':
             print("Exiting the program.")
             break
         else:
