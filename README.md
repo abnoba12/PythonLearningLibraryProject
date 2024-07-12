@@ -46,7 +46,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - CSV file operations
 - Basic CRUD operations (Create, Read, Update, Delete)
 
-### Lesson 7: Object-Oriented Programming (OOP) and Interfaces
+### Lesson 7: Object-Oriented Programming (OOP) and Interfaces [🔗](./documentation/lesson_7.md)
 
 - Classes and objects
 - Methods and attributes

@@ -224,3 +224,6 @@ read_books(filename)
 ## Summary
 
 By the end of Lesson 6, students should be comfortable with handling files in Python and performing basic CRUD operations. They will understand how to open, read, write, and close files using different methods and how to manage file resources efficiently. They will also learn how to work with CSV files, which are commonly used for storing and manipulating tabular data. These skills are essential for applications that need to persist data between runs or manipulate data stored in files, particularly for managing a library's book collection.
+
+## Lesson 7
+   [Lesson 7: Classes, Interfaces, and Data Storage](./documentation/lesson_7.md)
