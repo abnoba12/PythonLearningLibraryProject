@@ -34,7 +34,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - While loops
 - User input handling
 
-### Lesson 5: Error Handling
+### Lesson 5: Error Handling [🔗](./documentation/lesson_5.md)
 
 - Try-except blocks
 - Handling invalid input

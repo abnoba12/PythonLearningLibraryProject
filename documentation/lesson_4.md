@@ -165,3 +165,6 @@ main_menu()
 ## Summary
 
 By the end of Lesson 4, students should be comfortable with using control structures in Python, including if-else statements and loops (while and for), and handling user input. They will also learn to implement a menu-driven interface, which is essential for creating interactive programs. Understanding and using these control structures effectively will enable students to write more complex and dynamic Python programs.
+
+## Lesson 5
+   [Lesson 5: Error Handling and Debugging](./documentation/lesson_5.md)
