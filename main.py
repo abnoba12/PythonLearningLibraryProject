@@ -1,15 +1,13 @@
 # Answers to Lesson 5
-from library.data_operations.book_operations import InvalidYearError, add_book, remove_book, update_book_year, list_books, find_book_by_title, print_book_details, check_book_year
 
-books = [
-    {"title": "1984", "author": "George Orwell", "year": 1949},
-    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
-]
+# from library.data_operations.book_operations import InvalidYearError, add_book, remove_book, update_book_year, list_books, find_book_by_title, print_book_details, check_book_year
+from library.data_operations.text_repository import add_book as add_book, list_books as list_books, update_book_year as update_book_year, remove_book as remove_book
+# from library.data_operations.csv_repository import add_book as add_book, list_books as list_books, update_book_year as update_book_year, remove_book as remove_book
 
 def main_menu():
     while True:
         print("\nMain Menu:")
-        print("1. Add Book")
+        print("1 Add Book")
         print("2. Remove Book")
         print("3. Update Book Year")
         print("4. List Books")
@@ -23,31 +21,31 @@ def main_menu():
             title = input("Enter book title: ")
             author = input("Enter book author: ")
             year = int(input("Enter book year: "))
-            print(add_book(books, title, author, year))
+            print(add_book(title, author, year))
         elif choice == '2':
             title = input("Enter book title to remove: ")
-            print(remove_book(books, title))
+            print(remove_book(title))
         elif choice == '3':
             title = input("Enter book title to update: ")
             new_year = int(input("Enter new year: "))
-            print(update_book_year(books, title, new_year))
+            print(update_book_year(title, new_year))
         elif choice == '4':
             print("List of books:")
-            for title in list_books(books):
+            for title in list_books():
                 print(title)
         elif choice == '5':
             title = input("Enter book title to find: ")
-            book = find_book_by_title(books, title)
+            book = find_book_by_title(title)
             if book:
                 print(f"Found book: {book}")
             else:
                 print("Book not found")
         elif choice == '6':
             print("Printing all book details:")
-            print_book_details(books)
+            print_book_details()
         elif choice == '7':
             title = input("Enter book title to check year: ")
-            book = find_book_by_title(books, title)
+            book = find_book_by_title(title)
             if book:
                 try:
                     print(check_book_year(book))

@@ -1,7 +1,12 @@
 # book_operations.py
 
+book_list = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
+
 # Exercise 1: Basic Error Handling
-def add_book(book_list, title, author, year):
+def add_book(title, author, year):
     try:
         if not title or not author:
             raise ValueError("Both title and author are required.")
@@ -26,7 +31,7 @@ def add_book(book_list, title, author, year):
 
 
 # Exercise 2: Catching Specific Exceptions
-def print_book_details(book_list):
+def print_book_details():
     try:
         for book in book_list:
             if not isinstance(book, dict) or 'title' not in book or 'author' not in book or 'year' not in book:
@@ -68,24 +73,24 @@ def check_book_year(book):
 #     print(f"Error: {e}")
 
 
-def remove_book(book_list, title):
+def remove_book(title):
     for book in book_list:
         if book['title'] == title:
             book_list.remove(book)
             return f"Book '{title}' removed."
     return f"Book '{title}' not found."
 
-def update_book_year(book_list, title, new_year):
+def update_book_year(title, new_year):
     for book in book_list:
         if book['title'] == title:
             book['year'] = new_year
             return f"Year updated for book '{title}' to {new_year}."
     return f"Book '{title}' not found."
 
-def list_books(book_list):
+def list_books():
     return [book['title'] for book in book_list]
 
-def find_book_by_title(book_list, title):
+def find_book_by_title(title):
     for book in book_list:
         if book['title'] == title:
             return book
