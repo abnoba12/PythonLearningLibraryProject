@@ -253,3 +253,6 @@ class RepositoryFactory:
 By the end of Lesson 7, students should be comfortable with defining and using interfaces in Python, understanding and using classes and objects, implementing methods and attributes, implementing interfaces for different data storage methods, and switching between these storage methods using a factory pattern. These skills are essential
 
  for writing flexible, maintainable, and scalable code, particularly in the context of managing a library's book collection.
+
+## Lesson 8
+   [Lesson 8: Working with APIs](./documentation/lesson_8.md)

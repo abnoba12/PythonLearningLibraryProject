@@ -53,7 +53,7 @@ Throughout this course, we will cover a range of fundamental and advanced topics
 - Interfaces and implementation
 - Toggling between data storage methods (CSV and database)
 
-### Lesson 8: Working with APIs
+### Lesson 8: Working with APIs [🔗](./documentation/lesson_8.md)
 
 - Introduction to REST APIs
 - Using the `requests` library to make API calls
