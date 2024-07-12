@@ -158,3 +158,6 @@ If you have completed Lesson 1 and are ready to proceed to Lesson 2, you need to
       main
    ```
    Once you have switched to the Lesson_2 branch, you are ready to start the next lesson. Happy coding!
+
+   ## Lesson 2
+   [Lesson 2: Core Python Concepts](./documentation/lesson_2.md)
