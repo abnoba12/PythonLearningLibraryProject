@@ -187,6 +187,21 @@ if __name__ == "__main__":
 
 **Exercise 4: Debugging with VS Code**
 1. Use the VS Code debugger to debug the provided example code. Set breakpoints, inspect variables, and step through the code to identify and fix the division by zero error.
+```python
+def divide(a, b):
+    return a / b
+
+def main():
+    x = 10
+    y = 0
+    try:
+        result = divide(x, y)
+        print(result)
+    except ZeroDivisionError:
+        print("Error: Division by zero is not allowed.")
+        
+main()
+```
 
 ## Summary
 
