@@ -206,3 +206,6 @@ main()
 ## Summary
 
 By the end of Lesson 5, students should be comfortable with handling errors and exceptions in Python and using the VS Code debugger to troubleshoot and fix issues in their code. They will understand how to use try-except blocks to catch and handle specific exceptions, how to use else and finally clauses, how to raise exceptions, including custom exceptions, and how to effectively use debugging tools in VS Code. These skills are essential for writing robust and error-tolerant programs and for efficiently troubleshooting and resolving issues during development, especially within the context of building a library application.
+
+## Lesson 6
+   [Lesson 6: File Handling and CRUD Operations](./documentation/lesson_6.md)

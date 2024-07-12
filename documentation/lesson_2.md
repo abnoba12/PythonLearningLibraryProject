@@ -165,3 +165,6 @@ print(books_with_year)
 ## Summary
 
 By the end of Lesson 2, students should be comfortable with the core concepts of Python, including variables, data types, operators, string manipulation, and lists. These foundational skills will be crucial for the more advanced topics covered in later lessons.
+
+## Lesson 3
+   [Lesson 3: Functions and Modules](./documentation/lesson_3.md)
