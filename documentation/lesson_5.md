@@ -177,13 +177,13 @@ if __name__ == "__main__":
 ## Exercises
 
 **Exercise 1: Basic Error Handling**
-1. Write a program that takes a book title and author as input and adds the book to the library. Use a try-except block to handle errors when the title or author is missing.
+1. Update add_book to use a try-except block to handle errors when the title or author is missing/blank.
 
 **Exercise 2: Catching Specific Exceptions**
-1. Write a program that takes a list of book titles and authors as input and prints each book's details. Use try-except blocks to handle invalid input and type errors.
+1. Create a function that can take a list of book as input and print each book's details. Use try-except blocks to handle invalid input and type errors.
 
 **Exercise 3: Raising Exceptions**
-1. Write a function that takes a book title as input and checks if it contains only letters and spaces. Raise a custom exception if the title contains any other characters.
+1. Write a function that takes a book as input and checks if it's year contains only numbers. Raise a custom exception if the year contains any other characters.
 
 **Exercise 4: Debugging with VS Code**
 1. Use the VS Code debugger to debug the provided example code. Set breakpoints, inspect variables, and step through the code to identify and fix the division by zero error.

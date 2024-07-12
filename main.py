@@ -1,104 +1,94 @@
 # Answers to Lesson 5
 
-# Exercise 1: Basic Error Handling
-print("\n\rExercise 1: Basic Error Handling")
+# ./main.py
+print("\n\rExercise 3: User Input Handling")
 
-# 1. Write a program that takes a book title and author as input and adds the book to the library. 
-# Use a try-except block to handle errors when the title or author is missing.
+# 1. Write a prompt that asks for a list of numbers as input and prints out if each number is positive, negative, or zero using the function from Exercise 1.
+# Use try-except blocks to handle invalid input and type errors.
+print("\n\r1. Prompt for a list of numbers and check if each number is positive, negative, or zero:")
 
-print("\n\r1. Adding a book to the library with error handling for missing title or author:")
+def check_number(number):
+    if number > 0:
+        return "The number is positive"
+    elif number == 0:
+        return "The number is zero"
+    else:
+        return "The number is negative"
 
-def add_book_to_library(title, author, books):
+user_input = input("Enter a list of numbers separated by spaces: ")
+numbers = user_input.split()
+for num in numbers:
     try:
-        if not title or not author:
-            raise ValueError("Both title and author are required.")
-        books.append({"title": title, "author": author})
-        print(f"Book added: {title} by {author}")
-    except ValueError as e:
-        print(f"Error: {e}")
+        number = int(num)
+        print(check_number(number))
+    except ValueError:
+        print(f"Invalid input: {num} is not a number")
+
+# 2. Write a program that takes a string as input and checks if it is a palindrome (a word that reads the same backward as forward).
+print("\n\r2. Check if a string is a palindrome:")
+
+def is_palindrome(s):
+    return s == s[::-1]
+
+user_input = input("Enter a string: ")
+if is_palindrome(user_input):
+    print("The string is a palindrome")
+else:
+    print("The string is not a palindrome")
+
+
+
+
+
+print("\n\rExercise 4: Implementing a Menu-Driven Interface")
+
+# 1. Create a menu-driven program that allows the user to perform different library operations that were created in lesson 3 in file "./library/data_operations/book_operations.py".
+# Through this menu and prompts we need to allow users to "add_book", "remove_book", "update_book_year", "list_books", and "find_book_by_title".
+
+from library.data_operations.book_operations import add_book, remove_book, update_book_year, list_books, find_book_by_title
 
 books = []
-title = input("Enter the book title: ")
-author = input("Enter the book author: ")
-add_book_to_library(title, author, books)
-print(books)
 
+def main_menu():
+    while True:
+        print("\nMain Menu:")
+        print("1. Add Book")
+        print("2. Remove Book")
+        print("3. Update Book Year")
+        print("4. List Books")
+        print("5. Find Book by Title")
+        print("6. Exit")
+        choice = input("Enter your choice: ")
 
-# Exercise 2: Catching Specific Exceptions
-print("\n\rExercise 2: Catching Specific Exceptions")
+        if choice == '1':
+            title = input("Enter book title: ")
+            author = input("Enter book author: ")
+            year = int(input("Enter book year: "))
+            add_book(books, title, author, year)
+            print(f"Book added: {title}, {author}, {year}")
+        elif choice == '2':
+            title = input("Enter book title to remove: ")
+            print(remove_book(books, title))
+        elif choice == '3':
+            title = input("Enter book title to update: ")
+            new_year = int(input("Enter new year: "))
+            print(update_book_year(books, title, new_year))
+        elif choice == '4':
+            print("List of books:")
+            for title in list_books(books):
+                print(title)
+        elif choice == '5':
+            title = input("Enter book title to find: ")
+            book = find_book_by_title(books, title)
+            if book:
+                print(f"Found book: {book}")
+            else:
+                print("Book not found")
+        elif choice == '6':
+            print("Exiting the program.")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-# 1. Write a program that takes a list of book titles and authors as input and prints each book's details.
-# Use try-except blocks to handle invalid input and type errors.
-
-print("\n\r1. Printing book details with error handling for invalid input and type errors:")
-
-def print_book_details(book_list):
-    try:
-        for book in book_list:
-            if not isinstance(book, dict) or 'title' not in book or 'author' not in book:
-                raise TypeError("Each book must be a dictionary with 'title' and 'author' keys.")
-            print(f"Title: {book['title']}, Author: {book['author']}")
-    except TypeError as e:
-        print(f"Error: {e}")
-
-book_list = [
-    {"title": "1984", "author": "George Orwell"},
-    {"title": "Brave New World", "author": "Aldous Huxley"},
-    "Invalid Book"
-]
-
-print_book_details(book_list)
-
-
-# Exercise 3: Raising Exceptions
-print("\n\rExercise 3: Raising Exceptions")
-
-# 1. Write a function that takes a book title as input and checks if it contains only letters and spaces.
-# Raise a custom exception if the title contains any other characters.
-
-print("\n\r1. Checking book title for valid characters and raising a custom exception:")
-
-class InvalidTitleError(Exception):
-    pass
-
-def check_book_title(title):
-    if not all(char.isalpha() or char.isspace() for char in title):
-        raise InvalidTitleError("The title can only contain letters and spaces.")
-    return "Title is valid."
-
-try:
-    title = input("Enter the book title: ")
-    print(check_book_title(title))
-except InvalidTitleError as e:
-    print(f"Error: {e}")
-
-
-# Exercise 4: Debugging with VS Code
-print("\n\rExercise 4: Debugging with VS Code")
-
-# 1. Use the VS Code debugger to debug the provided example code.
-# Set breakpoints, inspect variables, and step through the code to identify and fix the division by zero error.
-
-print("\n\r1. Debug the provided example code:")
-
-def divide(a, b):
-    return a / b
-
-def main():
-    x = 10
-    y = 0
-    try:
-        result = divide(x, y)
-        print(result)
-    except ZeroDivisionError:
-        print("Error: Division by zero is not allowed.")
-
-if __name__ == "__main__":
-    main()
-
-
-# To debug this code in Visual Studio Code:
-# 1. Set a breakpoint by clicking in the gutter next to the line number where result = divide(x, y) is.
-# 2. Open the Run and Debug view by clicking the Debug icon in the Activity Bar.
-# 3. Click the Run and Debug button, or press F5 to start debugging.
-# 4. Step through the code, inspect variables, and use the debug console to troubleshoot the issue.
+# Run the main menu
+main_menu()
