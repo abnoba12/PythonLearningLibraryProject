@@ -145,19 +145,22 @@ main_menu()
 ## Exercises
 
 **Exercise 1: If-Else Statements**
-1. Write a program that checks if a number is positive, negative, or zero.
-2. Write a program that assigns grades based on marks: A (90-100), B (80-89), C (70-79), D (60-69), F (below 60).
+1. Create a new file: ./library/data_operations/lesson4_functions.py. Write all code for Exercise 1 in this file.
+2. Write a function that checks if a number is positive, negative, or zero.
+3. Write a function that returns the first two letter of the authors last name based on the book provided
 
 **Exercise 2: While Loops**
-1. Write a while loop that prints numbers from 1 to 10.
-2. Write a program that uses a while loop to calculate the sum of numbers from 1 to 100.
+1. Write all code for Exercise 2 in ./library/data_operations/lesson4_functions.py
+2. Write a function with a while loop that prints numbers from 1 to 10.
+3. Write a function that uses a while loop to calculate the sum of numbers from 1 to 100.
 
 **Exercise 3: User Input Handling**
-1. Write a program that takes a list of numbers as input and prints the square of each number. Use try-except blocks to handle invalid input and type errors.
-2. Write a program that takes a string as input and checks if it is a palindrome (a word that reads the same backward as forward).
+1. Write all code for Exercise 3 in ./main.py
+2. Write a prompt that asks for a list of numbers as input and prints out if each number is positive, negative, or zero using the function from Exercise 1. Use try-except blocks to handle invalid input and type errors.
+3. Write a program that takes a string as input and checks if it is a palindrome (a word that reads the same backward as forward).
 
 **Exercise 4: Implementing a Menu-Driven Interface**
-1. Create a menu-driven program that allows the user to perform different mathematical operations (addition, subtraction, multiplication, division) based on their choice. Ensure that the program handles invalid choices and division by zero errors.
+1. Create a menu-driven program that allows the user to perform different library operations that were created in lesson 3 in file "./library/data_operations/book_operations.py". Through this menu and prompts we need to allow users to "add_book", "remove_book", "update_book_year", "list_books", and "find_book_by_title".
 
 ## Summary
 
