@@ -8,27 +8,27 @@ Welcome to the Python Programming course! In this course, we will learn Python b
 
 Throughout this course, we will cover a range of fundamental and advanced topics in Python programming. Here's a brief overview of what we will cover:
 
-### Lesson 1: Introduction to Python and Project Setup
+### Lesson 1: Introduction to Python and Project Setup [🔗](./documentation/lesson_1.md)
 
 - Introduction to Python programming language
 - Setting up the Python development environment
 - Creating the initial project structure
 - Running a basic Python script
 
-### Lesson 2: Core Python Concepts
+### Lesson 2: Core Python Concepts [🔗](./documentation/lesson_2.md)
 
 - Variables and data types
 - Basic operators
 - String manipulation
 - Lists and list comprehensions
 
-### Lesson 3: Functions and Modules
+### Lesson 3: Functions and Modules [🔗](./documentation/lesson_3.md)
 
 - Function definition and calling
 - Parameters and return values
 - Importing and organizing code into modules
 
-### Lesson 4: Control Structures
+### Lesson 4: Control Structures [🔗](./documentation/lesson_4.md)
 
 - If-else statements
 - While loops
