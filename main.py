@@ -1,53 +1,10 @@
 # Answers to Lesson 5
+from library.data_operations.book_operations import InvalidYearError, add_book, remove_book, update_book_year, list_books, find_book_by_title, print_book_details, check_book_year
 
-# ./main.py
-print("\n\rExercise 3: User Input Handling")
-
-# 1. Write a prompt that asks for a list of numbers as input and prints out if each number is positive, negative, or zero using the function from Exercise 1.
-# Use try-except blocks to handle invalid input and type errors.
-print("\n\r1. Prompt for a list of numbers and check if each number is positive, negative, or zero:")
-
-def check_number(number):
-    if number > 0:
-        return "The number is positive"
-    elif number == 0:
-        return "The number is zero"
-    else:
-        return "The number is negative"
-
-user_input = input("Enter a list of numbers separated by spaces: ")
-numbers = user_input.split()
-for num in numbers:
-    try:
-        number = int(num)
-        print(check_number(number))
-    except ValueError:
-        print(f"Invalid input: {num} is not a number")
-
-# 2. Write a program that takes a string as input and checks if it is a palindrome (a word that reads the same backward as forward).
-print("\n\r2. Check if a string is a palindrome:")
-
-def is_palindrome(s):
-    return s == s[::-1]
-
-user_input = input("Enter a string: ")
-if is_palindrome(user_input):
-    print("The string is a palindrome")
-else:
-    print("The string is not a palindrome")
-
-
-
-
-
-print("\n\rExercise 4: Implementing a Menu-Driven Interface")
-
-# 1. Create a menu-driven program that allows the user to perform different library operations that were created in lesson 3 in file "./library/data_operations/book_operations.py".
-# Through this menu and prompts we need to allow users to "add_book", "remove_book", "update_book_year", "list_books", and "find_book_by_title".
-
-from library.data_operations.book_operations import add_book, remove_book, update_book_year, list_books, find_book_by_title
-
-books = []
+books = [
+    {"title": "1984", "author": "George Orwell", "year": 1949},
+    {"title": "Brave New World", "author": "Aldous Huxley", "year": 1932}
+]
 
 def main_menu():
     while True:
@@ -57,15 +14,16 @@ def main_menu():
         print("3. Update Book Year")
         print("4. List Books")
         print("5. Find Book by Title")
-        print("6. Exit")
+        print("6. Print Book Details")
+        print("7. Check Book Year")
+        print("8. Exit")
         choice = input("Enter your choice: ")
 
         if choice == '1':
             title = input("Enter book title: ")
             author = input("Enter book author: ")
             year = int(input("Enter book year: "))
-            add_book(books, title, author, year)
-            print(f"Book added: {title}, {author}, {year}")
+            print(add_book(books, title, author, year))
         elif choice == '2':
             title = input("Enter book title to remove: ")
             print(remove_book(books, title))
@@ -85,6 +43,19 @@ def main_menu():
             else:
                 print("Book not found")
         elif choice == '6':
+            print("Printing all book details:")
+            print_book_details(books)
+        elif choice == '7':
+            title = input("Enter book title to check year: ")
+            book = find_book_by_title(books, title)
+            if book:
+                try:
+                    print(check_book_year(book))
+                except InvalidYearError as e:
+                    print(f"Error: {e}")
+            else:
+                print("Book not found")
+        elif choice == '8':
             print("Exiting the program.")
             break
         else:
