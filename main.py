@@ -1,7 +1,15 @@
-# Answers to Lesson 5
+# main.py
 
+# Answers to Lesson 6
+# Uncomment the import for the lesson you want to use
+
+# Import from Lesson 3
 # from library.data_operations.book_operations import InvalidYearError, add_book, remove_book, update_book_year, list_books, find_book_by_title, print_book_details, check_book_year
-from library.data_operations.text_repository import add_book as add_book, list_books as list_books, update_book_year as update_book_year, remove_book as remove_book
+
+# Import for Lesson 6 Exercise 2 and 3
+# from library.data_operations.text_repository import add_book as add_book, list_books as list_books, update_book_year as update_book_year, remove_book as remove_book
+
+# Import for Lesson 6 Exercise 4
 # from library.data_operations.csv_repository import add_book as add_book, list_books as list_books, update_book_year as update_book_year, remove_book as remove_book
 
 def main_menu():
@@ -31,8 +39,7 @@ def main_menu():
             print(update_book_year(title, new_year))
         elif choice == '4':
             print("List of books:")
-            for title in list_books():
-                print(title)
+            list_books()
         elif choice == '5':
             title = input("Enter book title to find: ")
             book = find_book_by_title(title)
