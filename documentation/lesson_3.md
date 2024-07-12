@@ -128,8 +128,8 @@ print(book)
 2. Define a function `list_books` that returns a list of all book titles in the library.
 
 **Exercise 3: Importing and Organizing Code into Modules**
-1. Create a module `library_utils.py` and define functions `add_book`, `remove_book`, `update_book_year`, and `list_books`.
-2. Import the `library_utils` module in a new file `main.py` and use the functions defined in the module to manage a list of books.
+1. Create a module `book_operations.py` and define functions `add_book`, `remove_book`, `update_book_year`, `list_books`, and `find_book_by_title`.
+2. Import the `book_operations` module in a new file `main.py` and use the functions defined in the module to manage a list of books.
 
 ## Summary
 
